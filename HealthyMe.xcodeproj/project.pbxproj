@@ -6,14 +6,104 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0A566E812EA3479D005CF808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A566E7D2EA3479D005CF808 /* Assets.xcassets */; };
+		0A566E822EA3479D005CF808 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A566E7E2EA3479D005CF808 /* ContentView.swift */; };
+		0A566E832EA3479D005CF808 /* HealthyMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A566E7F2EA3479D005CF808 /* HealthyMeApp.swift */; };
+		0A566E9E2EA34D06005CF808 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A566E9D2EA34D05005CF808 /* WidgetKit.framework */; };
+		0A566EA02EA34D06005CF808 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A566E9F2EA34D06005CF808 /* SwiftUI.framework */; };
+		0A566EAD2EA34D07005CF808 /* HealthyMeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0A566E9B2EA34D05005CF808 /* HealthyMeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A566EB62EA35AD8005CF808 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A566EB52EA35ACD005CF808 /* Color+Extension.swift */; };
+		0AFB72ED2EA3613D00DB0621 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72EC2EA3613700DB0621 /* AppRouter.swift */; };
+		0AFB72F02EA3618C00DB0621 /* LockScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72EF2EA3618600DB0621 /* LockScreenView.swift */; };
+		0AFB72F22EA3619600DB0621 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72F12EA3619000DB0621 /* MainTabView.swift */; };
+		0AFB72FA2EA361F000DB0621 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72F92EA361E800DB0621 /* SettingsView.swift */; };
+		0AFB72FE2EA3621D00DB0621 /* ProgressViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72FD2EA3620B00DB0621 /* ProgressViewPage.swift */; };
+		0AFB73002EA3622800DB0621 /* CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72FF2EA3622500DB0621 /* CheckView.swift */; };
+		0AFB73022EA363D100DB0621 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73012EA363C800DB0621 /* Habit.swift */; };
+		0AFB73072EA3640400DB0621 /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73062EA363FE00DB0621 /* HabitsStore.swift */; };
+		0AFB730A2EA3656C00DB0621 /* CheckHabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73092EA3656500DB0621 /* CheckHabitsViewModel.swift */; };
+		0AFB730E2EA3659600DB0621 /* HabitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB730D2EA3659300DB0621 /* HabitRow.swift */; };
+		0AFB73102EA365A900DB0621 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB730F2EA365A400DB0621 /* AddHabitView.swift */; };
+		0AFB73122EA370F000DB0621 /* HabitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73112EA370EF00DB0621 /* HabitDetailView.swift */; };
+		0AFB73152EA3789700DB0621 /* LabeledRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73142EA3789500DB0621 /* LabeledRows.swift */; };
+		0AFB73182EA3825800DB0621 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73172EA3825200DB0621 /* NotificationService.swift */; };
+		0AFB731A2EA39B6800DB0621 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB73192EA39B6800DB0621 /* Config.xcconfig */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A566EAB2EA34D07005CF808 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A50F89C2E7B442F00B9559C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A566E9A2EA34D05005CF808;
+			remoteInfo = HealthyMeWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0A566E742EA34467005CF808 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0A566EAD2EA34D07005CF808 /* HealthyMeWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0A50F8A42E7B442F00B9559C /* HealthyMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A566E7D2EA3479D005CF808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A566E7E2EA3479D005CF808 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0A566E7F2EA3479D005CF808 /* HealthyMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyMeApp.swift; sourceTree = "<group>"; };
+		0A566E9B2EA34D05005CF808 /* HealthyMeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HealthyMeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A566E9D2EA34D05005CF808 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0A566E9F2EA34D06005CF808 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0A566EB22EA34E97005CF808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A566EB52EA35ACD005CF808 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		0AFB72EC2EA3613700DB0621 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		0AFB72EF2EA3618600DB0621 /* LockScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenView.swift; sourceTree = "<group>"; };
+		0AFB72F12EA3619000DB0621 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		0AFB72F92EA361E800DB0621 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0AFB72FD2EA3620B00DB0621 /* ProgressViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewPage.swift; sourceTree = "<group>"; };
+		0AFB72FF2EA3622500DB0621 /* CheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckView.swift; sourceTree = "<group>"; };
+		0AFB73012EA363C800DB0621 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		0AFB73062EA363FE00DB0621 /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
+		0AFB73092EA3656500DB0621 /* CheckHabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHabitsViewModel.swift; sourceTree = "<group>"; };
+		0AFB730D2EA3659300DB0621 /* HabitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRow.swift; sourceTree = "<group>"; };
+		0AFB730F2EA365A400DB0621 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
+		0AFB73112EA370EF00DB0621 /* HabitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailView.swift; sourceTree = "<group>"; };
+		0AFB73142EA3789500DB0621 /* LabeledRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledRows.swift; sourceTree = "<group>"; };
+		0AFB73172EA3825200DB0621 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		0AFB73192EA39B6800DB0621 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0A566EAE2EA34D07005CF808 /* Exceptions for "HealthyMeWidget" folder in "HealthyMeWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0A566E9A2EA34D05005CF808 /* HealthyMeWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0A50F8A62E7B442F00B9559C /* HealthyMe */ = {
+		0A566E8E2EA34A94005CF808 /* Fonts */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HealthyMe;
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0A566EA12EA34D06005CF808 /* HealthyMeWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0A566EAE2EA34D07005CF808 /* Exceptions for "HealthyMeWidget" folder in "HealthyMeWidgetExtension" target */,
+			);
+			path = HealthyMeWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,14 +116,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0A566E982EA34D05005CF808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A566EA02EA34D06005CF808 /* SwiftUI.framework in Frameworks */,
+				0A566E9E2EA34D06005CF808 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0A50F89B2E7B442F00B9559C = {
 			isa = PBXGroup;
 			children = (
-				0A50F8A62E7B442F00B9559C /* HealthyMe */,
+				0A566E802EA3479D005CF808 /* HealthyMe */,
+				0A566EA12EA34D06005CF808 /* HealthyMeWidget */,
+				0A566E9C2EA34D05005CF808 /* Frameworks */,
 				0A50F8A52E7B442F00B9559C /* Products */,
+				0AFB73192EA39B6800DB0621 /* Config.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -41,8 +143,197 @@
 			isa = PBXGroup;
 			children = (
 				0A50F8A42E7B442F00B9559C /* HealthyMe.app */,
+				0A566E9B2EA34D05005CF808 /* HealthyMeWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0A566E802EA3479D005CF808 /* HealthyMe */ = {
+			isa = PBXGroup;
+			children = (
+				0A566E842EA349BB005CF808 /* App */,
+				0A566E852EA349D4005CF808 /* Features */,
+				0A566E862EA349DE005CF808 /* Models */,
+				0A566E892EA349FF005CF808 /* Services */,
+				0A566E8A2EA34A14005CF808 /* Theme */,
+				0A566E8B2EA34A24005CF808 /* Shared */,
+				0A566E8D2EA34A8B005CF808 /* Resources */,
+				0A566EB22EA34E97005CF808 /* Info.plist */,
+			);
+			path = HealthyMe;
+			sourceTree = "<group>";
+		};
+		0A566E842EA349BB005CF808 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB72EE2EA3618000DB0621 /* Views */,
+				0AFB72EC2EA3613700DB0621 /* AppRouter.swift */,
+				0A566E7F2EA3479D005CF808 /* HealthyMeApp.swift */,
+				0A566E7E2EA3479D005CF808 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0A566E852EA349D4005CF808 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB72F42EA361C200DB0621 /* Progress */,
+				0AFB72F32EA361BC00DB0621 /* Check */,
+				0AFB72F52EA361CA00DB0621 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		0A566E862EA349DE005CF808 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73012EA363C800DB0621 /* Habit.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0A566E892EA349FF005CF808 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73162EA3824A00DB0621 /* Notifications */,
+				0AFB73032EA363E200DB0621 /* Storage */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0A566E8A2EA34A14005CF808 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				0A566EB42EA35AC4005CF808 /* Colors */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		0A566E8B2EA34A24005CF808 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73132EA3788500DB0621 /* Components */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0A566E8D2EA34A8B005CF808 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A566E8E2EA34A94005CF808 /* Fonts */,
+				0A566E7D2EA3479D005CF808 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0A566E9C2EA34D05005CF808 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A566E9D2EA34D05005CF808 /* WidgetKit.framework */,
+				0A566E9F2EA34D06005CF808 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0A566EB42EA35AC4005CF808 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				0A566EB52EA35ACD005CF808 /* Color+Extension.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		0AFB72EE2EA3618000DB0621 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB72F12EA3619000DB0621 /* MainTabView.swift */,
+				0AFB72EF2EA3618600DB0621 /* LockScreenView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0AFB72F32EA361BC00DB0621 /* Check */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73082EA3655800DB0621 /* ViewModels */,
+				0AFB72F82EA361E300DB0621 /* Views */,
+			);
+			path = Check;
+			sourceTree = "<group>";
+		};
+		0AFB72F42EA361C200DB0621 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB72F72EA361DD00DB0621 /* Views */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		0AFB72F52EA361CA00DB0621 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB72F62EA361D800DB0621 /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0AFB72F62EA361D800DB0621 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB72F92EA361E800DB0621 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0AFB72F72EA361DD00DB0621 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB72FD2EA3620B00DB0621 /* ProgressViewPage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0AFB72F82EA361E300DB0621 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73112EA370EF00DB0621 /* HabitDetailView.swift */,
+				0AFB730F2EA365A400DB0621 /* AddHabitView.swift */,
+				0AFB730D2EA3659300DB0621 /* HabitRow.swift */,
+				0AFB72FF2EA3622500DB0621 /* CheckView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0AFB73032EA363E200DB0621 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73062EA363FE00DB0621 /* HabitsStore.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		0AFB73082EA3655800DB0621 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73092EA3656500DB0621 /* CheckHabitsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0AFB73132EA3788500DB0621 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73142EA3789500DB0621 /* LabeledRows.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0AFB73162EA3824A00DB0621 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73172EA3825200DB0621 /* NotificationService.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,13 +346,15 @@
 				0A50F8A02E7B442F00B9559C /* Sources */,
 				0A50F8A12E7B442F00B9559C /* Frameworks */,
 				0A50F8A22E7B442F00B9559C /* Resources */,
+				0A566E742EA34467005CF808 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0A566EAC2EA34D07005CF808 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				0A50F8A62E7B442F00B9559C /* HealthyMe */,
+				0A566E8E2EA34A94005CF808 /* Fonts */,
 			);
 			name = HealthyMe;
 			packageProductDependencies = (
@@ -70,6 +363,28 @@
 			productReference = 0A50F8A42E7B442F00B9559C /* HealthyMe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0A566E9A2EA34D05005CF808 /* HealthyMeWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A566EAF2EA34D07005CF808 /* Build configuration list for PBXNativeTarget "HealthyMeWidgetExtension" */;
+			buildPhases = (
+				0A566E972EA34D05005CF808 /* Sources */,
+				0A566E982EA34D05005CF808 /* Frameworks */,
+				0A566E992EA34D05005CF808 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0A566EA12EA34D06005CF808 /* HealthyMeWidget */,
+			);
+			name = HealthyMeWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = HealthyMeWidgetExtension;
+			productReference = 0A566E9B2EA34D05005CF808 /* HealthyMeWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -77,11 +392,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					0A50F8A32E7B442F00B9559C = {
 						CreatedOnToolsVersion = 16.4;
+					};
+					0A566E9A2EA34D05005CF808 = {
+						CreatedOnToolsVersion = 26.0.1;
 					};
 				};
 			};
@@ -100,6 +418,7 @@
 			projectRoot = "";
 			targets = (
 				0A50F8A32E7B442F00B9559C /* HealthyMe */,
+				0A566E9A2EA34D05005CF808 /* HealthyMeWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -109,6 +428,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A566E812EA3479D005CF808 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A566E992EA34D05005CF808 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AFB731A2EA39B6800DB0621 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,10 +447,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFB73152EA3789700DB0621 /* LabeledRows.swift in Sources */,
+				0AFB72FA2EA361F000DB0621 /* SettingsView.swift in Sources */,
+				0AFB72ED2EA3613D00DB0621 /* AppRouter.swift in Sources */,
+				0AFB730A2EA3656C00DB0621 /* CheckHabitsViewModel.swift in Sources */,
+				0A566E822EA3479D005CF808 /* ContentView.swift in Sources */,
+				0AFB73072EA3640400DB0621 /* HabitsStore.swift in Sources */,
+				0AFB72F02EA3618C00DB0621 /* LockScreenView.swift in Sources */,
+				0AFB730E2EA3659600DB0621 /* HabitRow.swift in Sources */,
+				0A566EB62EA35AD8005CF808 /* Color+Extension.swift in Sources */,
+				0AFB73002EA3622800DB0621 /* CheckView.swift in Sources */,
+				0AFB73102EA365A900DB0621 /* AddHabitView.swift in Sources */,
+				0AFB73022EA363D100DB0621 /* Habit.swift in Sources */,
+				0AFB73122EA370F000DB0621 /* HabitDetailView.swift in Sources */,
+				0A566E832EA3479D005CF808 /* HealthyMeApp.swift in Sources */,
+				0AFB72FE2EA3621D00DB0621 /* ProgressViewPage.swift in Sources */,
+				0AFB72F22EA3619600DB0621 /* MainTabView.swift in Sources */,
+				0AFB73182EA3825800DB0621 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A566E972EA34D05005CF808 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0A566EAC2EA34D07005CF808 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A566E9A2EA34D05005CF808 /* HealthyMeWidgetExtension */;
+			targetProxy = 0A566EAB2EA34D07005CF808 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0A50F8AD2E7B443100B9559C /* Debug */ = {
@@ -246,18 +606,22 @@
 		};
 		0A50F8B02E7B443100B9559C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AFB73192EA39B6800DB0621 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				"INFOPLIST_FILE[sdk=*]" = HealthyMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -273,18 +637,22 @@
 		};
 		0A50F8B12E7B443100B9559C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AFB73192EA39B6800DB0621 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				"INFOPLIST_FILE[sdk=*]" = HealthyMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -293,6 +661,66 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.narattscoward.HealthyMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0A566EB02EA34D07005CF808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HealthyMeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HealthyMeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.narattscoward.HealthyMe.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0A566EB12EA34D07005CF808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HealthyMeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HealthyMeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.narattscoward.HealthyMe.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -315,6 +743,15 @@
 			buildConfigurations = (
 				0A50F8B02E7B443100B9559C /* Debug */,
 				0A50F8B12E7B443100B9559C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A566EAF2EA34D07005CF808 /* Build configuration list for PBXNativeTarget "HealthyMeWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A566EB02EA34D07005CF808 /* Debug */,
+				0A566EB12EA34D07005CF808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

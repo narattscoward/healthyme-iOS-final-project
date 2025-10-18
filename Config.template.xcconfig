@@ -1,0 +1,6 @@
+# HealthyMe – Example Configuration File
+# --------------------------------------
+# Copy this file and rename it to "Config.xcconfig"
+# Then paste your real OpenAI API key below.
+
+OPENAI_API_KEY = YOUR_API_KEY_HERE
