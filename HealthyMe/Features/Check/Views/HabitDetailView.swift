@@ -5,17 +5,22 @@ struct HabitDetailView: View {
     let onDelete: () -> Void
 
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var languageManager: LanguageManager
 
-    // Draft for explicit Save flow (title, time, notes only)
+    // Working copies
     @State private var draft: Habit
+    @State private var original: Habit
     @State private var timeDate: Date
+
+    private var b: Bundle { languageManager.bundle }
 
     init(habit: Binding<Habit>, onDelete: @escaping () -> Void) {
         _habit = habit
         self.onDelete = onDelete
 
         let current = habit.wrappedValue
-        _draft = State(initialValue: current)
+        _draft    = State(initialValue: current)
+        _original = State(initialValue: current)
 
         if let comps = current.time, let d = Calendar.current.date(from: comps) {
             _timeDate = State(initialValue: d)
@@ -24,19 +29,31 @@ struct HabitDetailView: View {
         }
     }
 
-    // Only consider title/time/notes diffs (notify toggles save instantly)
-    private var hasChanges: Bool {
-        let titleChanged = draft.title != habit.title
-        let notesChanged = draft.notes != habit.notes
-        let timeChanged: Bool = {
-            let current = habit.time
-            let draftTime = draft.time
-            return current?.hour != draftTime?.hour || current?.minute != draftTime?.minute
-        }()
-        return titleChanged || notesChanged || timeChanged
+    // Only fields edited here determine “dirty”: title, notes, time (hour/minute)
+    private var isDirty: Bool {
+        !equalsForDetails(lhs: draft, rhs: original)
+    }
+
+    private func equalsForDetails(lhs: Habit, rhs: Habit) -> Bool {
+        let lhsTitle = lhs.title.trimmingCharacters(in: .whitespacesAndNewlines)
+        let rhsTitle = rhs.title.trimmingCharacters(in: .whitespacesAndNewlines)
+        let lhsNotes = lhs.notes.trimmingCharacters(in: .whitespacesAndNewlines)
+        let rhsNotes = rhs.notes.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard lhsTitle == rhsTitle, lhsNotes == rhsNotes else { return false }
+
+        switch (lhs.time, rhs.time) {
+        case (nil, nil): return true
+        case let (a?, b?): return a.hour == b.hour && a.minute == b.minute
+        default: return false
+        }
     }
 
     private let labelWidth: CGFloat = 120
+    private let rowHeight: CGFloat  = 36
+
+    @ViewBuilder private func hairline() -> some View {
+        Divider().overlay(Color.black.opacity(0.06))
+    }
 
     var body: some View {
         ZStack {
@@ -47,44 +64,58 @@ struct HabitDetailView: View {
 
                     // Card
                     VStack(spacing: 0) {
-                        // Title (draft)
-                        LabeledTextFieldRow(
-                            label: "Habit",
-                            text: $draft.title,
-                            placeholder: "Habit name",
-                            labelWidth: labelWidth,
-                            trailingAligned: true // match Add screen if you like
-                        )
+                        // Name
+                        LabeledRow(label: L("form.habit", b), labelWidth: labelWidth) {
+                            TextField(
+                                "",
+                                text: $draft.title,
+                                prompt: Text(L("placeholder.habitName", b))
+                                    .font(.custom("SeoulHangangM", size: 16))
+                            )
+                            .font(.custom("SeoulHangangM", size: 16))
+                            .multilineTextAlignment(.trailing)
+                            .frame(height: rowHeight)
+                        }
 
-                        Divider().overlay(Color.black.opacity(0.06))
+                        hairline()
 
-                        // Time (draft) -> mirrors into draft.time
-                        LabeledTimeRow(date: $timeDate, labelWidth: labelWidth)
-                            .onChange(of: timeDate) { _, newValue in
+                        // Time (writes to draft only after user moves the picker)
+                        LabeledRow(label: L("form.time", b), labelWidth: labelWidth) {
+                            Spacer(minLength: 12)
+                            DatePicker(
+                                "",
+                                selection: $timeDate,
+                                displayedComponents: [.hourAndMinute]
+                            )
+                            .labelsHidden()
+                            .datePickerStyle(.compact)
+                            .controlSize(.small)
+                            .tint(Color.App.primary)
+                            .font(.custom("SeoulHangangM", size: 16))
+                            .frame(height: rowHeight)
+                            .onChange(of: timeDate, initial: false) { _, newValue in
                                 draft.time = Calendar.current
                                     .dateComponents([.hour, .minute], from: newValue)
                             }
+                        }
+                        .padding(.vertical, 2)
 
-                        Divider().overlay(Color.black.opacity(0.06))
+                        hairline()
 
-                        // Notification (LIVE) -> binds directly to habit.notify
-                        LabeledToggleRow(
-                            label: "Notification",
-                            isOn: $habit.notify,          // <- immediate persist via VM binding
-                            labelWidth: labelWidth
-                        )
+                        // Notification toggle (live change; not part of Save)
+                        LabeledRow(label: L("form.notification", b), labelWidth: labelWidth) {
+                            Spacer(minLength: 12)
+                            Toggle("", isOn: $habit.notify)
+                                .labelsHidden()
+                                .tint(Color.App.primary)
+                                .frame(height: rowHeight)
+                        }
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 6)
-                    .background(
-                        RoundedRectangle(cornerRadius: 14, style: .continuous)
-                            .fill(Color.white.opacity(0.98))
-                            .shadow(color: .black.opacity(0.06), radius: 8, y: 2)
-                    )
+                    .cardStyle()
 
-                    // Description (draft)
+                    // Description
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Description")
+                        Text(L("details.description", b))
                             .font(.custom("SeoulHangangM", size: 16))
                             .foregroundColor(.App.textPrimary)
                             .padding(.horizontal, 6)
@@ -109,11 +140,11 @@ struct HabitDetailView: View {
                     Button(role: .destructive) {
                         let performDelete = onDelete
                         dismiss()
-                        DispatchQueue.main.async { performDelete() } // after dismissal
+                        DispatchQueue.main.async { performDelete() }
                     } label: {
                         HStack(spacing: 8) {
                             Image(systemName: "trash")
-                            Text("Delete")
+                            Text(L("action.delete", b))
                         }
                         .font(.custom("SeoulHangangM", size: 16))
                         .frame(maxWidth: .infinity)
@@ -128,26 +159,22 @@ struct HabitDetailView: View {
                 .padding(.bottom, 24)
             }
         }
-        .navigationTitle("Details")
+        .navigationTitle(L("navigation.details.title", b))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button("Save") {
-                    // Write back only the fields we draft-edit.
-                    habit.title = draft.title
-                    habit.time  = draft.time
-                    habit.notes = draft.notes
-                    dismiss()
+            if isDirty {                      // ← match ProfileView: only show when dirty
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(L("common.save", b)) {
+                        habit.title = draft.title
+                        habit.notes = draft.notes
+                        habit.time  = draft.time
+                        dismiss()
+                    }
+                    .font(.custom("SeoulHangangEB", size: 16))
+                    .foregroundColor(.App.primary)
                 }
-                .font(.custom("SeoulHangangEB", size: 16))
-                .disabled(!hasChanges)  // visible but disabled when no changes, or switch to conditional if you prefer
             }
         }
-        .onAppear {
-            // Ensure draft has a time once; mirror from habit on first appear
-            if draft.time == nil {
-                draft.time = Calendar.current.dateComponents([.hour, .minute], from: timeDate)
-            }
-        }
+        .environment(\.locale, languageManager.locale)
     }
 }

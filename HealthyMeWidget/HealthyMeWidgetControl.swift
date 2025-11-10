@@ -1,10 +1,3 @@
-//
-//  HealthyMeWidgetControl.swift
-//  HealthyMeWidget
-//
-//  Created by Sam Yati on 18/10/2025.
-//
-
 import AppIntents
 import SwiftUI
 import WidgetKit

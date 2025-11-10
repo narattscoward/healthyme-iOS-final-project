@@ -1,3 +1,4 @@
+// Services/NotificationService.swift
 import Foundation
 import UserNotifications
 
@@ -9,7 +10,6 @@ final class NotificationService {
     private let requestKey = "hasRequestedNotificationAuth"
 
     // MARK: - Auth
-
     /// Ask once, then remember. If already determined, this is a no-op.
     func requestAuthorizationIfNeeded(completion: ((Bool) -> Void)? = nil) {
         center.getNotificationSettings { settings in
@@ -17,66 +17,64 @@ final class NotificationService {
             case .notDetermined:
                 self.center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
                     UserDefaults.standard.set(true, forKey: self.requestKey)
-                    completion?(granted)
+                    DispatchQueue.main.async { completion?(granted) }
                 }
             default:
-                completion?(settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional)
+                let granted = (settings.authorizationStatus == .authorized ||
+                               settings.authorizationStatus == .provisional ||
+                               settings.authorizationStatus == .ephemeral)
+                DispatchQueue.main.async { completion?(granted) }
             }
         }
     }
 
     // MARK: - Public API
-
-    /// Bring a single habit’s notification into the correct state
     func sync(for habit: Habit) {
         // no time or notify = false → cancel
-        guard habit.notify, let comps = habit.time, let hour = comps.hour, let minute = comps.minute else {
+        guard habit.notify,
+              let comps = habit.time,
+              let hour = comps.hour,
+              let minute = comps.minute else {
             cancel(for: habit.id)
             return
         }
 
-        // ensure permission first, then schedule
         requestAuthorizationIfNeeded { _ in
             self.scheduleDaily(id: habit.id, title: habit.title, hour: hour, minute: minute)
         }
     }
 
-    /// Reschedule everything (useful on app launch if you want)
     func syncAll(_ habits: [Habit]) {
         for h in habits { sync(for: h) }
     }
 
-    /// Cancel a single habit’s notification
     func cancel(for id: UUID) {
-        let identifier = Self.identifier(for: id)
-        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        center.removePendingNotificationRequests(withIdentifiers: [Self.identifier(for: id)])
     }
 
-    /// Cancel many by ids
     func cancel(ids: [UUID]) {
         let identifiers = ids.map(Self.identifier(for:))
         center.removePendingNotificationRequests(withIdentifiers: identifiers)
     }
 
-    // MARK: - Internals
+    func cancelAll() {
+        center.removeAllPendingNotificationRequests()
+    }
 
+    // MARK: - Internals
     private func scheduleDaily(id: UUID, title: String, hour: Int, minute: Int) {
-        // 1) Remove any previous request for this habit
         cancel(for: id)
 
-        // 2) Content
         let content = UNMutableNotificationContent()
         content.title = "HealthyMe"
-        content.body  = title    // keep it simple; can customize later
+        content.body  = title
         content.sound = .default
 
-        // 3) Trigger (repeats daily at selected time)
         var comps = DateComponents()
         comps.hour = hour
         comps.minute = minute
         let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: true)
 
-        // 4) Request
         let request = UNNotificationRequest(
             identifier: Self.identifier(for: id),
             content: content,
@@ -84,12 +82,7 @@ final class NotificationService {
         )
 
         center.add(request) { error in
-            if let error = error {
-                print("🔔 schedule error:", error.localizedDescription)
-            } else {
-                // Debug pending
-                // self.center.getPendingNotificationRequests { print("Pending:", $0.count) }
-            }
+            if let error = error { print("🔔 schedule error:", error.localizedDescription) }
         }
     }
 
