@@ -1,21 +1,40 @@
 import SwiftUI
 
 struct CheckView: View {
-    @StateObject private var vm = CheckHabitsViewModel()
+    @EnvironmentObject private var vm: CheckHabitsViewModel
     @State private var showingAdd = false
+    @EnvironmentObject private var languageManager: LanguageManager
+
+    private var b: Bundle { languageManager.bundle }
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color.App.background.ignoresSafeArea()
-                VStack(spacing: 12) {
-                    Text("Daily Habits")
-                        .font(.custom("SeoulHangangEB", size: 32))
-                        .foregroundColor(.App.textPrimary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
+        ZStack {
+            Color.App.background.ignoresSafeArea()
 
-                    List {
+            List {
+                // --- QUOTE SECTION FIRST ---
+                Section {
+                    QuoteCard(
+                        text: vm.quoteText,
+                        author: vm.quoteAuthor,
+                        isLoading: vm.isLoadingQuote,
+                        error: vm.quoteError,
+                        onRetry: { Task { await vm.refreshQuote(force: true) } }
+                    )
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.clear)
+                }
+
+                // --- HABIT LIST ---
+                Section {
+                    if vm.habits.isEmpty {
+                        Text(L("check.emptyState", b))
+                            .font(.custom("SeoulHangangM", size: 14))
+                            .foregroundColor(.App.textSecondary)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(.vertical, 16)
+                            .listRowBackground(Color.clear)
+                    } else {
                         ForEach(vm.habits) { habit in
                             let hb = vm.binding(for: habit.id, fallback: habit)
 
@@ -33,54 +52,29 @@ struct CheckView: View {
                             .listRowBackground(Color.clear)
                         }
                         .onDelete(perform: vm.delete)
-
-                        Section {
-                            RoundedRectangle(cornerRadius: 14)
-                                .fill(Color.App.card)
-                                .overlay(
-                                    VStack(alignment: .leading, spacing: 8) {
-                                        Text("Quote of the day")
-                                            .font(.custom("SeoulHangangM", size: 15))
-                                            .foregroundColor(.App.textSecondary)
-                                        Text("“No problem can be solved from the same level of consciousness that created it.”")
-                                            .font(.custom("SeoulHangangM", size: 16))
-                                            .foregroundColor(.App.textPrimary)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                        HStack {
-                                            Spacer()
-                                            Text("— Albert Einstein")
-                                                .font(.custom("SeoulHangangL", size: 14))
-                                                .foregroundColor(.App.textSecondary)
-                                        }
-                                    }
-                                    .padding(14)
-                                )
-                                .frame(height: 140)
-                                .listRowInsets(EdgeInsets())
-                                .listRowBackground(Color.clear)
-                        }
-                    }
-                    .scrollContentBackground(.hidden)
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showingAdd = true
-                    } label: {
-                        Image(systemName: "plus")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(.App.primary)
                     }
                 }
             }
-            .sheet(isPresented: $showingAdd) {
-                AddHabitView(viewModel: vm)
+            .scrollContentBackground(.hidden)
+            .listRowSeparator(.hidden)
+            .listSectionSeparator(.hidden)
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showingAdd = true
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.App.primary)
+                        .accessibilityLabel(Text(L("check.addHabit", b)))
+                }
             }
         }
-        .onAppear {
-            NotificationService.shared.requestAuthorizationIfNeeded()
+        .sheet(isPresented: $showingAdd) {
+            AddHabitView(viewModel: vm)
         }
+        .task { await vm.refreshQuote() }
+        .onAppear { NotificationService.shared.requestAuthorizationIfNeeded() }
     }
 }

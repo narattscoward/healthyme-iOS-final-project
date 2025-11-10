@@ -3,6 +3,7 @@ import SwiftUI
 struct AddHabitView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: CheckHabitsViewModel
+    @EnvironmentObject private var languageManager: LanguageManager
 
     @State private var title: String = ""
     @State private var time: Date = Date()
@@ -10,6 +11,13 @@ struct AddHabitView: View {
     @State private var notes: String = ""
 
     private let labelWidth: CGFloat = 120
+    private let rowHeight: CGFloat  = 36
+
+    private var b: Bundle { languageManager.bundle }
+
+    @ViewBuilder private func hairline() -> some View {
+        Divider().overlay(Color.black.opacity(0.06))
+    }
 
     var body: some View {
         ZStack {
@@ -22,7 +30,7 @@ struct AddHabitView: View {
                         .frame(width: 36, height: 4)
                         .padding(.top, 8)
 
-                    Text("Add a habit")
+                    Text(L("addHabit.title", b))  // "Add a habit"
                         .font(.custom("SeoulHangangEB", size: 24))
                         .foregroundColor(.App.textPrimary)
                 }
@@ -31,42 +39,57 @@ struct AddHabitView: View {
                 ScrollView {
                     VStack(spacing: 18) {
 
-                        // Card
+                        // ── Card (uniform 36pt rows) ──────────────────────────
                         VStack(spacing: 0) {
-                            LabeledTextFieldRow(
-                                label: "Habit",
-                                text: $title,
-                                placeholder: "Enter habit name",
-                                labelWidth: labelWidth,
-                                trailingAligned: true // like your spec
-                            )
+                            // Habit name
+                            LabeledRow(label: L("form.habit", b),
+                                       labelWidth: labelWidth) {
+                                TextField(
+                                    L("placeholder.habitName", b),
+                                    text: $title
+                                )
+                                .font(.custom("SeoulHangangM", size: 16))
+                                .multilineTextAlignment(.trailing)
+                                .frame(height: rowHeight)
+                            }
 
-                            Divider().overlay(Color.black.opacity(0.06))
+                            hairline()
 
-                            LabeledTimeRow(
-                                date: $time,
-                                labelWidth: labelWidth
-                            )
+                            // Time (compact, small)
+                            LabeledRow(label: L("form.time", b),
+                                       labelWidth: labelWidth) {
+                                Spacer(minLength: 12)
+                                DatePicker(
+                                    "",
+                                    selection: $time,
+                                    displayedComponents: [.hourAndMinute]
+                                )
+                                .labelsHidden()
+                                .datePickerStyle(.compact)
+                                .controlSize(.small)
+                                .tint(Color.App.primary)
+                                .font(.custom("SeoulHangangM", size: 16))
+                                .frame(height: rowHeight)
+                            }
+                            .padding(.vertical, 2)
 
-                            Divider().overlay(Color.black.opacity(0.06))
+                            hairline()
 
-                            LabeledToggleRow(
-                                label: "Notification",
-                                isOn: $notify,
-                                labelWidth: labelWidth
-                            )
+                            // Notification toggle
+                            LabeledRow(label: L("form.notification", b),
+                                       labelWidth: labelWidth) {
+                                Spacer(minLength: 12)
+                                Toggle("", isOn: $notify)
+                                    .labelsHidden()
+                                    .tint(Color.App.primary)
+                                    .frame(height: rowHeight)
+                            }
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 6)
-                        .background(
-                            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                                .fill(Color.white.opacity(0.98))
-                                .shadow(color: .black.opacity(0.06), radius: 8, y: 2)
-                        )
+                        .cardStyle()
 
-                        // Description
+                        // ── Description (separate from the card) ─────────────
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Description")
+                            Text(L("details.description", b))
                                 .font(.custom("SeoulHangangM", size: 16))
                                 .foregroundColor(.App.textPrimary)
                                 .padding(.horizontal, 6)
@@ -87,7 +110,7 @@ struct AddHabitView: View {
                                 .padding(.horizontal, 6)
                         }
 
-                        // Button directly under Description
+                        // ── Add button ───────────────────────────────────────
                         Button {
                             let comps = Calendar.current.dateComponents([.hour, .minute], from: time)
                             let name = title.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -95,7 +118,7 @@ struct AddHabitView: View {
                             viewModel.add(title: name, time: comps, notify: notify, notes: notes)
                             dismiss()
                         } label: {
-                            Text("Add Habit")
+                            Text(L("button.addHabit", b))
                                 .font(.custom("SeoulHangangEB", size: 16))
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity)
@@ -113,6 +136,8 @@ struct AddHabitView: View {
                 }
             }
         }
+        // Make pickers/text date formats follow the selected app locale, too:
+        .environment(\.locale, languageManager.locale)
         .presentationDragIndicator(.visible)
     }
 }

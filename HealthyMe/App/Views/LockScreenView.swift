@@ -3,6 +3,9 @@ import LocalAuthentication
 
 struct LockScreenView: View {
     @EnvironmentObject var router: AppRouter
+    @EnvironmentObject private var languageManager: LanguageManager
+    private var b: Bundle { languageManager.bundle }
+
     @State private var progress: CGFloat = 0
 
     var body: some View {
@@ -17,6 +20,7 @@ struct LockScreenView: View {
                     .foregroundColor(.App.primary)
                     .symbolEffect(.bounce, value: progress > 0)
 
+                // Brand name — keep not localized
                 Text("HealthyMe")
                     .font(.custom("SeoulHangangEB", size: 34))
                     .foregroundColor(.App.primary)
@@ -30,6 +34,10 @@ struct LockScreenView: View {
             }
             .padding()
         }
+        // Make formatters respect chosen locale (future-proof)
+        .environment(\.locale, languageManager.locale)
+        // Ensure view updates if language changes while it’s shown
+        .id(languageManager.languageCode)
         .onAppear {
             withAnimation(.easeInOut(duration: 1.8)) { progress = 1.0 }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -41,20 +49,19 @@ struct LockScreenView: View {
     private func authenticate() {
         let ctx = LAContext()
         var err: NSError?
+
         if ctx.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &err) {
-            ctx.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
-                               localizedReason: "Unlock HealthyMe with Face ID") { success, _ in
+            ctx.evaluatePolicy(
+                .deviceOwnerAuthenticationWithBiometrics,
+                localizedReason: L("auth.reason", b)
+            ) { success, _ in
                 DispatchQueue.main.async {
-                    if success {
-                        router.isLocked = false
-                    } else {
-                        // fallback: allow pass-through for simulator/testing
-                        router.isLocked = false
-                    }
+                    // For now, allow pass-through either way (simulator/dev flow)
+                    router.isLocked = false
                 }
             }
         } else {
-            // no biometrics available (simulator) -> continue
+            // No biometrics (e.g. simulator)
             router.isLocked = false
         }
     }

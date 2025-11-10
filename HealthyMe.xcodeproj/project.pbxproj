@@ -14,6 +14,16 @@
 		0A566EA02EA34D06005CF808 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A566E9F2EA34D06005CF808 /* SwiftUI.framework */; };
 		0A566EAD2EA34D07005CF808 /* HealthyMeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0A566E9B2EA34D05005CF808 /* HealthyMeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0A566EB62EA35AD8005CF808 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A566EB52EA35ACD005CF808 /* Color+Extension.swift */; };
+		0AA00E952EA4D11100F75B4F /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA00E942EA4D10C00F75B4F /* Localization.swift */; };
+		0AA00E992EA4DD6C00F75B4F /* HabitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA00E982EA4DD6300F75B4F /* HabitDetailView.swift */; };
+		0AEE0E292EA4EE4F007D7AC4 /* AlertCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE0E282EA4EE4B007D7AC4 /* AlertCard.swift */; };
+		0AEE0E2D2EA4FD28007D7AC4 /* SharedIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE0E2C2EA4FD24007D7AC4 /* SharedIDs.swift */; };
+		0AEE0E2E2EA4FD4C007D7AC4 /* SharedIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE0E2C2EA4FD24007D7AC4 /* SharedIDs.swift */; };
+		0AEE0E302EA4FDB2007D7AC4 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE0E2F2EA4FDB1007D7AC4 /* WidgetSnapshot.swift */; };
+		0AEE0E312EA4FDB2007D7AC4 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE0E2F2EA4FDB1007D7AC4 /* WidgetSnapshot.swift */; };
+		0AEE0E362EA526AF007D7AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A566E7D2EA3479D005CF808 /* Assets.xcassets */; };
+		0AEE0E372EA52767007D7AC4 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A566EB52EA35ACD005CF808 /* Color+Extension.swift */; };
+		0AEE0E3B2EA54339007D7AC4 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE0E392EA54337007D7AC4 /* DeepLinkHandler.swift */; };
 		0AFB72ED2EA3613D00DB0621 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72EC2EA3613700DB0621 /* AppRouter.swift */; };
 		0AFB72F02EA3618C00DB0621 /* LockScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72EF2EA3618600DB0621 /* LockScreenView.swift */; };
 		0AFB72F22EA3619600DB0621 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB72F12EA3619000DB0621 /* MainTabView.swift */; };
@@ -25,10 +35,23 @@
 		0AFB730A2EA3656C00DB0621 /* CheckHabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73092EA3656500DB0621 /* CheckHabitsViewModel.swift */; };
 		0AFB730E2EA3659600DB0621 /* HabitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB730D2EA3659300DB0621 /* HabitRow.swift */; };
 		0AFB73102EA365A900DB0621 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB730F2EA365A400DB0621 /* AddHabitView.swift */; };
-		0AFB73122EA370F000DB0621 /* HabitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73112EA370EF00DB0621 /* HabitDetailView.swift */; };
 		0AFB73152EA3789700DB0621 /* LabeledRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73142EA3789500DB0621 /* LabeledRows.swift */; };
 		0AFB73182EA3825800DB0621 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73172EA3825200DB0621 /* NotificationService.swift */; };
 		0AFB731A2EA39B6800DB0621 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB73192EA39B6800DB0621 /* Config.xcconfig */; };
+		0AFB731D2EA39FC600DB0621 /* QuoteAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB731C2EA39FBE00DB0621 /* QuoteAIService.swift */; };
+		0AFB731F2EA3A01000DB0621 /* QuoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB731E2EA3A00C00DB0621 /* QuoteCard.swift */; };
+		0AFB73222EA3E51800DB0621 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73212EA3E50A00DB0621 /* Date+Extension.swift */; };
+		0AFB73272EA3E56D00DB0621 /* ProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73262EA3E56700DB0621 /* ProgressViewModel.swift */; };
+		0AFB73292EA3EB1B00DB0621 /* MiniBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73282EA3EB1400DB0621 /* MiniBarChart.swift */; };
+		0AFB732B2EA3ED1700DB0621 /* Habit+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB732A2EA3ED1500DB0621 /* Habit+Completion.swift */; };
+		0AFB732F2EA414F600DB0621 /* View+CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB732E2EA414F400DB0621 /* View+CardStyle.swift */; };
+		0AFB73332EA4166B00DB0621 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73322EA4166600DB0621 /* UserSettings.swift */; };
+		0AFB73352EA4168F00DB0621 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73342EA4168C00DB0621 /* SettingsStore.swift */; };
+		0AFB73382EA416B900DB0621 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73372EA416B700DB0621 /* SettingsViewModel.swift */; };
+		0AFB733A2EA416FC00DB0621 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73392EA416F900DB0621 /* ProfileView.swift */; };
+		0AFB733E2EA42C7E00DB0621 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB733D2EA42C7900DB0621 /* ThemeManager.swift */; };
+		0AFB73532EA4331800DB0621 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB73522EA4331300DB0621 /* LanguageManager.swift */; };
+		0AFB73552EA434C200DB0621 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0AFB73542EA434C200DB0621 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +88,14 @@
 		0A566E9F2EA34D06005CF808 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		0A566EB22EA34E97005CF808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A566EB52EA35ACD005CF808 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		0AA00E942EA4D10C00F75B4F /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		0AA00E982EA4DD6300F75B4F /* HabitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailView.swift; sourceTree = "<group>"; };
+		0AEE0E282EA4EE4B007D7AC4 /* AlertCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCard.swift; sourceTree = "<group>"; };
+		0AEE0E2A2EA4FAB4007D7AC4 /* HealthyMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthyMe.entitlements; sourceTree = "<group>"; };
+		0AEE0E2B2EA4FB3C007D7AC4 /* HealthyMeWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthyMeWidgetExtension.entitlements; sourceTree = "<group>"; };
+		0AEE0E2C2EA4FD24007D7AC4 /* SharedIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedIDs.swift; sourceTree = "<group>"; };
+		0AEE0E2F2EA4FDB1007D7AC4 /* WidgetSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshot.swift; sourceTree = "<group>"; };
+		0AEE0E392EA54337007D7AC4 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		0AFB72EC2EA3613700DB0621 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		0AFB72EF2EA3618600DB0621 /* LockScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenView.swift; sourceTree = "<group>"; };
 		0AFB72F12EA3619000DB0621 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -76,10 +107,23 @@
 		0AFB73092EA3656500DB0621 /* CheckHabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHabitsViewModel.swift; sourceTree = "<group>"; };
 		0AFB730D2EA3659300DB0621 /* HabitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRow.swift; sourceTree = "<group>"; };
 		0AFB730F2EA365A400DB0621 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
-		0AFB73112EA370EF00DB0621 /* HabitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailView.swift; sourceTree = "<group>"; };
 		0AFB73142EA3789500DB0621 /* LabeledRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledRows.swift; sourceTree = "<group>"; };
 		0AFB73172EA3825200DB0621 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0AFB73192EA39B6800DB0621 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0AFB731C2EA39FBE00DB0621 /* QuoteAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteAIService.swift; sourceTree = "<group>"; };
+		0AFB731E2EA3A00C00DB0621 /* QuoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCard.swift; sourceTree = "<group>"; };
+		0AFB73212EA3E50A00DB0621 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		0AFB73262EA3E56700DB0621 /* ProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewModel.swift; sourceTree = "<group>"; };
+		0AFB73282EA3EB1400DB0621 /* MiniBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarChart.swift; sourceTree = "<group>"; };
+		0AFB732A2EA3ED1500DB0621 /* Habit+Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+Completion.swift"; sourceTree = "<group>"; };
+		0AFB732E2EA414F400DB0621 /* View+CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CardStyle.swift"; sourceTree = "<group>"; };
+		0AFB73322EA4166600DB0621 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		0AFB73342EA4168C00DB0621 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		0AFB73372EA416B700DB0621 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		0AFB73392EA416F900DB0621 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		0AFB733D2EA42C7900DB0621 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		0AFB73522EA4331300DB0621 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		0AFB73542EA434C200DB0621 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -131,6 +175,7 @@
 		0A50F89B2E7B442F00B9559C = {
 			isa = PBXGroup;
 			children = (
+				0AEE0E2B2EA4FB3C007D7AC4 /* HealthyMeWidgetExtension.entitlements */,
 				0A566E802EA3479D005CF808 /* HealthyMe */,
 				0A566EA12EA34D06005CF808 /* HealthyMeWidget */,
 				0A566E9C2EA34D05005CF808 /* Frameworks */,
@@ -151,14 +196,17 @@
 		0A566E802EA3479D005CF808 /* HealthyMe */ = {
 			isa = PBXGroup;
 			children = (
+				0AEE0E2A2EA4FAB4007D7AC4 /* HealthyMe.entitlements */,
 				0A566E842EA349BB005CF808 /* App */,
 				0A566E852EA349D4005CF808 /* Features */,
 				0A566E862EA349DE005CF808 /* Models */,
 				0A566E892EA349FF005CF808 /* Services */,
+				0AFB73512EA432F900DB0621 /* Language */,
 				0A566E8A2EA34A14005CF808 /* Theme */,
 				0A566E8B2EA34A24005CF808 /* Shared */,
 				0A566E8D2EA34A8B005CF808 /* Resources */,
 				0A566EB22EA34E97005CF808 /* Info.plist */,
+				0AFB73542EA434C200DB0621 /* Localizable.xcstrings */,
 			);
 			path = HealthyMe;
 			sourceTree = "<group>";
@@ -187,6 +235,8 @@
 		0A566E862EA349DE005CF808 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB73322EA4166600DB0621 /* UserSettings.swift */,
+				0AFB732A2EA3ED1500DB0621 /* Habit+Completion.swift */,
 				0AFB73012EA363C800DB0621 /* Habit.swift */,
 			);
 			path = Models;
@@ -195,6 +245,7 @@
 		0A566E892EA349FF005CF808 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB731B2EA39FB200DB0621 /* QuoteAI */,
 				0AFB73162EA3824A00DB0621 /* Notifications */,
 				0AFB73032EA363E200DB0621 /* Storage */,
 			);
@@ -204,6 +255,7 @@
 		0A566E8A2EA34A14005CF808 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB733D2EA42C7900DB0621 /* ThemeManager.swift */,
 				0A566EB42EA35AC4005CF808 /* Colors */,
 			);
 			path = Theme;
@@ -212,6 +264,10 @@
 		0A566E8B2EA34A24005CF808 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0AEE0E392EA54337007D7AC4 /* DeepLinkHandler.swift */,
+				0AEE0E2F2EA4FDB1007D7AC4 /* WidgetSnapshot.swift */,
+				0AEE0E2C2EA4FD24007D7AC4 /* SharedIDs.swift */,
+				0AFB73202EA3E50600DB0621 /* Utils */,
 				0AFB73132EA3788500DB0621 /* Components */,
 			);
 			path = Shared;
@@ -264,6 +320,7 @@
 		0AFB72F42EA361C200DB0621 /* Progress */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB73252EA3E56000DB0621 /* ViewModels */,
 				0AFB72F72EA361DD00DB0621 /* Views */,
 			);
 			path = Progress;
@@ -272,6 +329,7 @@
 		0AFB72F52EA361CA00DB0621 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB73362EA416AC00DB0621 /* ViewModels */,
 				0AFB72F62EA361D800DB0621 /* Views */,
 			);
 			path = Settings;
@@ -280,6 +338,7 @@
 		0AFB72F62EA361D800DB0621 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB73392EA416F900DB0621 /* ProfileView.swift */,
 				0AFB72F92EA361E800DB0621 /* SettingsView.swift */,
 			);
 			path = Views;
@@ -288,6 +347,7 @@
 		0AFB72F72EA361DD00DB0621 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB73282EA3EB1400DB0621 /* MiniBarChart.swift */,
 				0AFB72FD2EA3620B00DB0621 /* ProgressViewPage.swift */,
 			);
 			path = Views;
@@ -296,7 +356,7 @@
 		0AFB72F82EA361E300DB0621 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0AFB73112EA370EF00DB0621 /* HabitDetailView.swift */,
+				0AA00E982EA4DD6300F75B4F /* HabitDetailView.swift */,
 				0AFB730F2EA365A400DB0621 /* AddHabitView.swift */,
 				0AFB730D2EA3659300DB0621 /* HabitRow.swift */,
 				0AFB72FF2EA3622500DB0621 /* CheckView.swift */,
@@ -307,6 +367,7 @@
 		0AFB73032EA363E200DB0621 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				0AFB73342EA4168C00DB0621 /* SettingsStore.swift */,
 				0AFB73062EA363FE00DB0621 /* HabitsStore.swift */,
 			);
 			path = Storage;
@@ -323,6 +384,9 @@
 		0AFB73132EA3788500DB0621 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0AEE0E282EA4EE4B007D7AC4 /* AlertCard.swift */,
+				0AFB732E2EA414F400DB0621 /* View+CardStyle.swift */,
+				0AFB731E2EA3A00C00DB0621 /* QuoteCard.swift */,
 				0AFB73142EA3789500DB0621 /* LabeledRows.swift */,
 			);
 			path = Components;
@@ -334,6 +398,47 @@
 				0AFB73172EA3825200DB0621 /* NotificationService.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		0AFB731B2EA39FB200DB0621 /* QuoteAI */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB731C2EA39FBE00DB0621 /* QuoteAIService.swift */,
+			);
+			path = QuoteAI;
+			sourceTree = "<group>";
+		};
+		0AFB73202EA3E50600DB0621 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73212EA3E50A00DB0621 /* Date+Extension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0AFB73252EA3E56000DB0621 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73262EA3E56700DB0621 /* ProgressViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0AFB73362EA416AC00DB0621 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0AFB73372EA416B700DB0621 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0AFB73512EA432F900DB0621 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				0AA00E942EA4D10C00F75B4F /* Localization.swift */,
+				0AFB73522EA4331300DB0621 /* LanguageManager.swift */,
+			);
+			path = Language;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +481,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				0A566E8E2EA34A94005CF808 /* Fonts */,
 				0A566EA12EA34D06005CF808 /* HealthyMeWidget */,
 			);
 			name = HealthyMeWidgetExtension;
@@ -409,6 +515,7 @@
 			knownRegions = (
 				en,
 				Base,
+				my,
 			);
 			mainGroup = 0A50F89B2E7B442F00B9559C;
 			minimizedProjectReferenceProxies = 1;
@@ -429,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A566E812EA3479D005CF808 /* Assets.xcassets in Resources */,
+				0AFB73552EA434C200DB0621 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AEE0E362EA526AF007D7AC4 /* Assets.xcassets in Resources */,
 				0AFB731A2EA39B6800DB0621 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,23 +556,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFB73272EA3E56D00DB0621 /* ProgressViewModel.swift in Sources */,
+				0AFB731F2EA3A01000DB0621 /* QuoteCard.swift in Sources */,
+				0AA00E952EA4D11100F75B4F /* Localization.swift in Sources */,
+				0AFB731D2EA39FC600DB0621 /* QuoteAIService.swift in Sources */,
 				0AFB73152EA3789700DB0621 /* LabeledRows.swift in Sources */,
 				0AFB72FA2EA361F000DB0621 /* SettingsView.swift in Sources */,
 				0AFB72ED2EA3613D00DB0621 /* AppRouter.swift in Sources */,
+				0AFB73532EA4331800DB0621 /* LanguageManager.swift in Sources */,
+				0AFB73222EA3E51800DB0621 /* Date+Extension.swift in Sources */,
 				0AFB730A2EA3656C00DB0621 /* CheckHabitsViewModel.swift in Sources */,
+				0AFB732F2EA414F600DB0621 /* View+CardStyle.swift in Sources */,
 				0A566E822EA3479D005CF808 /* ContentView.swift in Sources */,
+				0AFB73292EA3EB1B00DB0621 /* MiniBarChart.swift in Sources */,
+				0AEE0E3B2EA54339007D7AC4 /* DeepLinkHandler.swift in Sources */,
+				0AEE0E2D2EA4FD28007D7AC4 /* SharedIDs.swift in Sources */,
 				0AFB73072EA3640400DB0621 /* HabitsStore.swift in Sources */,
+				0AFB733A2EA416FC00DB0621 /* ProfileView.swift in Sources */,
 				0AFB72F02EA3618C00DB0621 /* LockScreenView.swift in Sources */,
 				0AFB730E2EA3659600DB0621 /* HabitRow.swift in Sources */,
 				0A566EB62EA35AD8005CF808 /* Color+Extension.swift in Sources */,
+				0AFB732B2EA3ED1700DB0621 /* Habit+Completion.swift in Sources */,
+				0AFB733E2EA42C7E00DB0621 /* ThemeManager.swift in Sources */,
+				0AFB73352EA4168F00DB0621 /* SettingsStore.swift in Sources */,
 				0AFB73002EA3622800DB0621 /* CheckView.swift in Sources */,
+				0AFB73332EA4166B00DB0621 /* UserSettings.swift in Sources */,
+				0AA00E992EA4DD6C00F75B4F /* HabitDetailView.swift in Sources */,
 				0AFB73102EA365A900DB0621 /* AddHabitView.swift in Sources */,
 				0AFB73022EA363D100DB0621 /* Habit.swift in Sources */,
-				0AFB73122EA370F000DB0621 /* HabitDetailView.swift in Sources */,
 				0A566E832EA3479D005CF808 /* HealthyMeApp.swift in Sources */,
 				0AFB72FE2EA3621D00DB0621 /* ProgressViewPage.swift in Sources */,
+				0AEE0E292EA4EE4F007D7AC4 /* AlertCard.swift in Sources */,
 				0AFB72F22EA3619600DB0621 /* MainTabView.swift in Sources */,
 				0AFB73182EA3825800DB0621 /* NotificationService.swift in Sources */,
+				0AFB73382EA416B900DB0621 /* SettingsViewModel.swift in Sources */,
+				0AEE0E302EA4FDB2007D7AC4 /* WidgetSnapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +598,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AEE0E312EA4FDB2007D7AC4 /* WidgetSnapshot.swift in Sources */,
+				0AEE0E372EA52767007D7AC4 /* Color+Extension.swift in Sources */,
+				0AEE0E2E2EA4FD4C007D7AC4 /* SharedIDs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +674,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -600,6 +731,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -610,9 +742,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HealthyMe/HealthyMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TD987NQCBF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				"INFOPLIST_FILE[sdk=*]" = HealthyMe/Info.plist;
@@ -641,9 +774,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HealthyMe/HealthyMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TD987NQCBF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				"INFOPLIST_FILE[sdk=*]" = HealthyMe/Info.plist;
@@ -671,8 +805,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HealthyMeWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TD987NQCBF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthyMeWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HealthyMeWidget;
@@ -701,8 +837,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HealthyMeWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TD987NQCBF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthyMeWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HealthyMeWidget;
